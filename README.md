@@ -2,6 +2,8 @@
 
 A native document editor for macOS 26 or later. Right-click an EPUB in Finder and choose **Edit**. The editor also accepts files through **File → Open** or by dropping them on its welcome window.
 
+Download the Apple silicon installer from [GitHub Releases](https://github.com/kalkanefe/epub-edit/releases/latest). It installs EPUB Edit in Applications. The 1.1.1 installer is unsigned and unnotarized, so macOS may block it from opening.
+
 ## Use
 
 1. Open **EPUB Edit** once so macOS registers its EPUB service.
@@ -28,4 +30,4 @@ swift test
 ./scripts/build-app.sh
 ```
 
-Copy `build/EPUB Edit.app` into Applications and open it once. The script builds for the current Mac’s architecture and signs the app locally. A signing identity can be supplied through `CODE_SIGN_IDENTITY`.
+The script creates `build/EPUB Edit.app` and a versioned `.pkg` installer in `build/` for the current Mac’s architecture. It signs the app locally. A signing identity for the app can be supplied through `CODE_SIGN_IDENTITY`.

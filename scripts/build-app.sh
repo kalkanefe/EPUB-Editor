@@ -21,6 +21,10 @@ codesign --verify --deep --strict "$app"
 output="build/EPUB Edit.app"
 ditto --norsrc --noextattr "$app" "$ready/bundle"
 codesign --verify --deep "$ready/bundle"
+version=$(plutil -extract CFBundleShortVersionString raw "$contents/Info.plist")
+arch=$(lipo -archs "$contents/MacOS/EPUBEdit" | tr ' ' '-')
+pkg="EPUB-Edit-$version-$arch.pkg"
+productbuild --component "$app" /Applications "$ready/$pkg"
 # Publish a complete bundle so obsolete files from earlier versions disappear.
 swift - "$ready/bundle" "$output" <<'SWIFT'
 import Darwin
@@ -32,4 +36,5 @@ if renamex_np(bundle, output, UInt32(RENAME_EXCL)) != 0 {
     }
 }
 SWIFT
-echo "Built $output"
+mv "$ready/$pkg" "build/$pkg"
+echo "Built $output and build/$pkg"
