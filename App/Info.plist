@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleIdentifier</key><string>com.nativeepub.EPUBEdit</string>
+    <key>CFBundleName</key><string>EPUB Edit</string>
+    <key>CFBundleDisplayName</key><string>EPUB Edit</string>
+    <key>CFBundleExecutable</key><string>EPUBEdit</string>
+    <key>CFBundleIconFile</key><string>AppIcon</string>
+    <key>CFBundlePackageType</key><string>APPL</string>
+    <key>CFBundleInfoDictionaryVersion</key><string>6.0</string>
+    <key>CFBundleShortVersionString</key><string>1.1.1</string>
+    <key>CFBundleVersion</key><string>3</string>
+    <key>CFBundleDevelopmentRegion</key><string>en</string>
+    <key>LSMinimumSystemVersion</key><string>26.0</string>
+    <key>LSApplicationCategoryType</key><string>public.app-category.utilities</string>
+    <key>NSPrincipalClass</key><string>NSApplication</string>
+    <key>NSHighResolutionCapable</key><true/>
+    <key>CFBundleDocumentTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleTypeName</key><string>EPUB Book</string>
+            <key>CFBundleTypeRole</key><string>Editor</string>
+            <key>LSHandlerRank</key><string>None</string>
+            <key>LSItemContentTypes</key><array><string>org.idpf.epub-container</string></array>
+            <key>NSDocumentClass</key><string>EPUBDocument</string>
+        </dict>
+    </array>
+    <key>NSServices</key>
+    <array>
+        <dict>
+            <key>NSMenuItem</key><dict><key>default</key><string>Edit</string></dict>
+            <key>NSMessage</key><string>editEPUB</string>
+            <key>NSPortName</key><string>EPUB Edit</string>
+            <key>NSSendFileTypes</key><array><string>org.idpf.epub-container</string></array>
+            <key>NSRequiredContext</key><dict/>
+        </dict>
+    </array>
+</dict>
+</plist>
